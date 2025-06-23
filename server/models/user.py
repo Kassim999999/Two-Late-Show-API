@@ -8,8 +8,14 @@ class User(db.Model, SerializerMixin):
     id = db.Column(db.Integer, primary_key=True)
     username = db.Column(db.String, unique=True, nullable=False)
     _password_hash = db.Column(db.String, nullable=False)
+    email = db.Column(db.String, nullable=False, unique=True)
 
-    def set_password(self, password):
+    @property
+    def password(self):
+        raise AttributeError("Password is write-only.")
+
+    @password.setter
+    def password(self, password):
         self._password_hash = generate_password_hash(password)
 
     def check_password(self, password):

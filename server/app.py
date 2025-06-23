@@ -12,7 +12,6 @@ from controllers.appearance_controller import appearance_bp
 
 
 
-db = SQLAlchemy()
 migrate = Migrate()
 jwt = JWTManager()
 
