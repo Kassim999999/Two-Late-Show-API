@@ -4,6 +4,14 @@ from flask_migrate import Migrate
 from flask_jwt_extended import JWTManager
 from config import Config
 
+from models import db
+from controllers.auth_controller import auth_bp
+from controllers.guest_controller import guest_bp
+from controllers.episode_controller import episode_bp
+from controllers.appearance_controller import appearance_bp
+
+
+
 db = SQLAlchemy()
 migrate = Migrate()
 jwt = JWTManager()
